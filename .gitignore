@@ -21,3 +21,4 @@ obj
 src/Mono.Upnp.Dcp/Mono.Upnp.Dcp.MediaServer1/Mono.Upnp.Dcp.MediaServer1.FileSystem.ConsoleServer/mono-upnp-simple-media-server
 src/Mono.Upnp/Mono.Upnp.GtkClient/mono-upnp-gtk
 test-results/
+/.vs/Mono.Upnp

@@ -48,22 +48,22 @@ namespace Mono.Upnp.Tests
             ParseType ((domainName, type, version) => new ServiceType (domainName, type, version), ServiceType.Parse, "service");
         }
 
-        [Test, ExpectedException (typeof (UpnpDeserializationException))]
+        [Test]
         public void ParseTooFewComponents ()
         {
-            DeviceType.Parse ("urn:mydomain.com:device:mytype");
+           Assert.Throws<UpnpDeserializationException>(()=> DeviceType.Parse ("urn:mydomain.com:device:mytype"));
         }
 
-        [Test, ExpectedException (typeof (UpnpDeserializationException))]
+        [Test]
         public void ParseBadVersion ()
         {
-            DeviceType.Parse ("urn:mydomain.com:device:mytype:a");
+            Assert.Throws<UpnpDeserializationException>(() => DeviceType.Parse ("urn:mydomain.com:device:mytype:a"));
         }
 
-        [Test, ExpectedException (typeof (UpnpDeserializationException))]
+        [Test]
         public void ParseBadMinorVersion ()
         {
-            DeviceType.Parse ("urn:mydomain.com:device:mytype:1.a");
+            Assert.Throws<UpnpDeserializationException>(() => DeviceType.Parse ("urn:mydomain.com:device:mytype:1.a"));
         }
 
         void ParseType<T> (Constructor<T> constructor, Parser<T> parser, string kind)
